@@ -13,6 +13,8 @@ class PantryItemTableViewCell: UITableViewCell {
     // MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var amountRemainingLabel: UILabel!
+    @IBOutlet weak var unitLabel: UILabel!
     
 
     override func awakeFromNib() {

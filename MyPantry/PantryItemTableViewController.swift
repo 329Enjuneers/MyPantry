@@ -11,12 +11,12 @@ import UIKit
 class PantryItemTableViewController: UITableViewController {
     
     // MARK: Properties
-    var pantryItems = [PantryItem]()
+    var categories = [PantryCategory]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadSamplePantryItems()
+    
+        loadSampleCategories()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -25,10 +25,12 @@ class PantryItemTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    func loadSamplePantryItems() {
-        let soupImage = UIImage(named : "soup")
-        let soup = PantryItem(name: "Soup", amountRemainingInOunces: 250, photo: soupImage)
-        pantryItems += [soup]
+    func loadSampleCategories() {
+        let category1 = PantryCategory("Baking")
+        category1.addDefaultPantryItem1()
+        let category2 = PantryCategory("Cereal", description: "Breakfast :)")
+        category2.addDefaultPantryItem2()
+        categories += [category1, category2]
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,23 +41,31 @@ class PantryItemTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return categories.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pantryItems.count
+        let category = categories[section]
+        return category.getNumberOfPantryItems()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "PantryItemTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PantryItemTableViewCell
-        
-        let pantryItem = pantryItems[indexPath.row]
+        let category = categories[indexPath.section]
+        let pantryItem = category.pantryItems[indexPath.row]
         
         cell.nameLabel.text = pantryItem.name
+        cell.amountRemainingLabel.text = pantryItem.amountRemainingInOunces.description
+        cell.unitLabel.text = pantryItem.unit
         cell.photoImageView.image = pantryItem.photo
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let category = categories[section]
+        return "\(category.name)"
     }
 
     /*

@@ -14,22 +14,12 @@ class PantryItem {
     var name : String
     var amountRemainingInOunces : Float
     var photo : UIImage?
+    var unit : String
     
-    init(name : String) {
-        self.name = name
-        self.amountRemainingInOunces = 0
-        self.photo = nil
-    }
-    
-    init(name : String, amountRemainingInOunces: Float) {
-        self.name = name
-        self.amountRemainingInOunces = 0
-        self.photo = nil
-    }
-    
-    init(name : String, amountRemainingInOunces: Float, photo : UIImage?) {
+    init(name : String, amountRemainingInOunces: Float, photo : UIImage?, unit : String) {
         self.name = name
         self.amountRemainingInOunces = amountRemainingInOunces
         self.photo = photo
+        self.unit = "oz"
     }
 }
