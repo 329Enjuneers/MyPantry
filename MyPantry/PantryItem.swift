@@ -20,6 +20,6 @@ class PantryItem {
         self.name = name
         self.amountRemainingInOunces = amountRemainingInOunces
         self.photo = photo
-        self.unit = "oz"
+        self.unit = unit
     }
 }

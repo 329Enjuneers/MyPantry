@@ -24,7 +24,7 @@
                                     <frame key="frameInset" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="B2D3D0DA-2839-417C-B3B4-4690E07EC24A" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="44BD2BAB-8305-44C4-BA32-C423A8939DC5" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
                                             <frame key="frameInset" minY="2" width="91" height="84"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -100,6 +100,16 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initial Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUW-5Q-yrV">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter initial amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0J8-hM-I4q">
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPd-e2-Hgd">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -123,7 +133,10 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="iVz-XX-jGz" secondAttribute="trailing" id="1fv-of-sjd"/>
                                     <constraint firstItem="iVz-XX-jGz" firstAttribute="leading" secondItem="B9P-Zy-tbQ" secondAttribute="leading" id="3FQ-eu-w9B"/>
-                                    <constraint firstAttribute="trailing" secondItem="GAr-ec-xCv" secondAttribute="trailing" id="cdN-GJ-RR0"/>
+                                    <constraint firstItem="GAr-ec-xCv" firstAttribute="leading" secondItem="B9P-Zy-tbQ" secondAttribute="leading" id="9iS-Yv-57i"/>
+                                    <constraint firstAttribute="trailing" secondItem="0J8-hM-I4q" secondAttribute="trailing" id="WoH-w1-Q9e"/>
+                                    <constraint firstItem="0J8-hM-I4q" firstAttribute="leading" secondItem="B9P-Zy-tbQ" secondAttribute="leading" id="ebR-7Q-weq"/>
+                                    <constraint firstAttribute="trailing" secondItem="GAr-ec-xCv" secondAttribute="trailing" id="tvi-iw-ymy"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -147,6 +160,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="pantryItemAmount" destination="0J8-hM-I4q" id="N1X-XD-zWf"/>
                         <outlet property="pantryItemImage" destination="pJw-aA-GIY" id="LQ6-Hc-3lu"/>
                         <outlet property="pantryItemName" destination="iVz-XX-jGz" id="FHW-w6-uMq"/>
                         <outlet property="pantryItemUnit" destination="GAr-ec-xCv" id="3Wf-U2-ZeP"/>
@@ -221,7 +235,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="B2D3D0DA-2839-417C-B3B4-4690E07EC24A" width="320" height="320">
+        <image name="44BD2BAB-8305-44C4-BA32-C423A8939DC5" width="320" height="320">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

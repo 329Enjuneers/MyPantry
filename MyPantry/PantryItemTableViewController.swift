@@ -70,7 +70,7 @@ class PantryItemTableViewController: UITableViewController {
     
     @IBAction func unwindToPantryItemList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? ViewController, let pantryItem = sourceViewController.pantryItem {
-            // Add a new meal.
+            // Add a new pantryItem.
             let newIndexPath = IndexPath(row: categories[0].getNumberOfPantryItems(), section: 0)
             categories[0].addPantryItem(pantryItem)
             tableView.insertRows(at: [newIndexPath], with: .bottom)
