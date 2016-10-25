@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +24,7 @@
                                     <frame key="frameInset" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="79C376F1-DB16-4695-B493-20898B19C56D" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4FA3EACE-CE05-4704-80DC-1180B096D612" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
                                             <frame key="frameInset" minY="2" width="91" height="84"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -63,14 +65,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="MyPantry" id="t9f-7Q-ZuP">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="y1Z-C5-oix"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="y1Z-C5-oix">
+                            <connections>
+                                <segue destination="UC8-fP-Rcx" kind="presentation" id="5U5-i4-ovX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R92-tq-dPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3133.5999999999999" y="136.28185907046478"/>
         </scene>
-        <!--View Controller-->
+        <!--New Pantry Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyPantry" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,12 +87,77 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="B9P-Zy-tbQ">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4Y-kO-BE3">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entry pantry item name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iVz-XX-jGz">
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPd-e2-Hgd">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter unit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GAr-ec-xCv">
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="DefaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="pJw-aA-GIY">
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="pJw-aA-GIY" secondAttribute="height" multiplier="1:1" id="YqW-PJ-WDT"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Ubo-B8-wkB" appends="YES" id="EnR-ia-OdI"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="iVz-XX-jGz" secondAttribute="trailing" id="1fv-of-sjd"/>
+                                    <constraint firstItem="iVz-XX-jGz" firstAttribute="leading" secondItem="B9P-Zy-tbQ" secondAttribute="leading" id="3FQ-eu-w9B"/>
+                                    <constraint firstAttribute="trailing" secondItem="GAr-ec-xCv" secondAttribute="trailing" id="cdN-GJ-RR0"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="B9P-Zy-tbQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="9p1-TE-Pwp"/>
+                            <constraint firstItem="B9P-Zy-tbQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="vXJ-NB-RjG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="B9P-Zy-tbQ" secondAttribute="trailing" id="yvo-o2-88b"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Pantry Item" id="lcZ-mg-5kj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lKh-Mx-Jpd"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Kae-fv-uFC">
+                            <connections>
+                                <segue destination="vO8-23-nrV" kind="unwind" unwindAction="unwindToPantryItemListWithSender:" id="7ir-4E-Atn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pantryItemImage" destination="pJw-aA-GIY" id="LQ6-Hc-3lu"/>
+                        <outlet property="pantryItemName" destination="iVz-XX-jGz" id="FHW-w6-uMq"/>
+                        <outlet property="pantryItemUnit" destination="GAr-ec-xCv" id="3Wf-U2-ZeP"/>
+                        <outlet property="saveButton" destination="Kae-fv-uFC" id="ZPi-UC-mnE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="vO8-23-nrV" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="Ubo-B8-wkB">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="PAr-zy-Czl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3898.4000000000001" y="135.38230884557723"/>
+            <point key="canvasLocation" x="5776.8000000000002" y="135.38230884557723"/>
         </scene>
         <!--MyPantry-->
         <scene sceneID="pni-Z1-ELs">
@@ -126,9 +197,27 @@
             </objects>
             <point key="canvasLocation" x="1255.2" y="136.28185907046478"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r5E-QB-dQ1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UC8-fP-Rcx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zgz-b0-oti">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9dc-c4-YL5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s8G-gS-2hf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4837.6000000000004" y="135.38230884557723"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="79C376F1-DB16-4695-B493-20898B19C56D" width="320" height="320">
+        <image name="4FA3EACE-CE05-4704-80DC-1180B096D612" width="320" height="320">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7009,6 +7098,7 @@ AAZKQQAGSkQABkpJAAZKUQAGSlQABkpmAAZKaQAGSm4AAAAAAAAEAQAAAAAAAABBAAAAAAAAAAAAAAAA
 AAZKcA
 </mutableData>
         </image>
+        <image name="DefaultPhoto" width="320" height="320"/>
         <image name="home" width="23" height="23"/>
     </resources>
 </document>

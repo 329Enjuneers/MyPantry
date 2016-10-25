@@ -67,6 +67,15 @@ class PantryItemTableViewController: UITableViewController {
         let category = categories[section]
         return "\(category.name)"
     }
+    
+    @IBAction func unwindToPantryItemList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ViewController, let pantryItem = sourceViewController.pantryItem {
+            // Add a new meal.
+            let newIndexPath = IndexPath(row: categories[0].getNumberOfPantryItems(), section: 0)
+            categories[0].addPantryItem(pantryItem)
+            tableView.insertRows(at: [newIndexPath], with: .bottom)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
