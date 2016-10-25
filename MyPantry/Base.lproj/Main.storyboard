@@ -24,7 +24,7 @@
                                     <frame key="frameInset" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4FA3EACE-CE05-4704-80DC-1180B096D612" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="B2D3D0DA-2839-417C-B3B4-4690E07EC24A" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
                                             <frame key="frameInset" minY="2" width="91" height="84"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -135,7 +135,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Pantry Item" id="lcZ-mg-5kj">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lKh-Mx-Jpd"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lKh-Mx-Jpd">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="kD7-Pe-GVc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Kae-fv-uFC">
                             <connections>
                                 <segue destination="vO8-23-nrV" kind="unwind" unwindAction="unwindToPantryItemListWithSender:" id="7ir-4E-Atn"/>
@@ -217,7 +221,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="4FA3EACE-CE05-4704-80DC-1180B096D612" width="320" height="320">
+        <image name="B2D3D0DA-2839-417C-B3B4-4690E07EC24A" width="320" height="320">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
