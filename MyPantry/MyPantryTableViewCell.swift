@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PantryItemTableViewCell: UITableViewCell {
+class MyPantryTableViewCell: UITableViewCell {
     
     // MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!

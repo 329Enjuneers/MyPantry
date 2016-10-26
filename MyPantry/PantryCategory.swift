@@ -41,4 +41,12 @@ class PantryCategory {
         let cereal = PantryItem(name: "Fruity Pebbles", amountRemainingInOunces: 500, photo: cerealImage, unit: "oz")
         addPantryItem(cereal)
     }
+    
+    func getDisplayableDescription() -> String {
+        var displayableDescription = description
+        if description != "" {
+            displayableDescription = "- " + description
+        }
+        return displayableDescription
+    }
 }
