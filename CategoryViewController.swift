@@ -8,12 +8,20 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var categoryName: UITextField!
+    @IBOutlet weak var categoryDescription: UITextField!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    var category : PantryCategory?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        categoryName.delegate = self
+        categoryDescription.delegate = self
+        saveButton.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +29,49 @@ class CategoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: UITextFieldDelegate
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == categoryName {
+            categoryName.text = textField.text
+        }
+        else if textField == categoryDescription {
+            categoryDescription.text = textField.text
+        }
+        checkSaveButtonShouldBeEnabled()
+    }
+    
+    private func checkSaveButtonShouldBeEnabled() {
+        if categoryName.text != "" {
+            saveButton.isEnabled = true
+        }
+        else {
+            saveButton.isEnabled = false
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if saveButton.isEqual(sender) {
+            let name = categoryName.text
+            let description = categoryDescription.text ?? ""
+            
+            category = PantryCategory(name!, description: description)
+        }
     }
-    */
+    
+    // MARK: - Actions
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
 
 }

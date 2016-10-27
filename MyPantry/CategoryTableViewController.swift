@@ -96,7 +96,8 @@ class CategoryTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCategory" {
             print("Here I am!")
-            let categoryItemViewController = segue.destination as! CategoryItemsTableViewController
+            let nav = segue.destination as! UINavigationController
+            let categoryItemViewController = nav.topViewController as! CategoryItemsTableViewController
             if let selectedCategoryCell = sender as? CategoryTableViewCell {
                 let indexPath = tableView.indexPath(for: selectedCategoryCell)!
                 let selectedCategory = categories[indexPath.row]

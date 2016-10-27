@@ -14,6 +14,8 @@ class CategoryItemsTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(self.navigationController)
+        self.navigationController?.navigationBar.topItem?.title = category?.name
 
 //        category = category
 //        if let category = category {
@@ -53,6 +55,9 @@ class CategoryItemsTableViewController: UITableViewController {
         return cell
     }
 
+    @IBAction func back(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
