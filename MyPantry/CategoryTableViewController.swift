@@ -95,13 +95,11 @@ class CategoryTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCategory" {
-            print("Here I am!")
             let nav = segue.destination as! UINavigationController
             let categoryItemViewController = nav.topViewController as! CategoryItemsTableViewController
             if let selectedCategoryCell = sender as? CategoryTableViewCell {
                 let indexPath = tableView.indexPath(for: selectedCategoryCell)!
                 let selectedCategory = categories[indexPath.row]
-                print("Got selected category: " + selectedCategory.name)
                 categoryItemViewController.category = selectedCategory
             }
         }

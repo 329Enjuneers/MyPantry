@@ -34,18 +34,14 @@ class CategoryItemsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(category!.getNumberOfPantryItems())
         return (category?.getNumberOfPantryItems())!
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CategoryItemsTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryItemsTableViewCell
-        
-        print(cell)
 
         let pantryItem = category?.pantryItems[indexPath.row]
-        print(pantryItem?.name)
         cell.pantryItemName.text = pantryItem?.name
         let amountRemaining = pantryItem?.amountRemainingInOunces ?? 0
         cell.pantryItemAmount.text = String(amountRemaining)
@@ -57,6 +53,15 @@ class CategoryItemsTableViewController: UITableViewController {
 
     @IBAction func back(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func unwindToPantryItemList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? MyPantryViewController, let pantryItem = sourceViewController.pantryItem {
+            // Add a new pantryItem.
+            let newIndexPath = IndexPath(row: (category?.getNumberOfPantryItems())!, section: 0)
+            category?.addPantryItem(pantryItem)
+            tableView.insertRows(at: [newIndexPath], with: .bottom)
+        }
     }
     /*
     // Override to support conditional editing of the table view.
