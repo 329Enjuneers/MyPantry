@@ -16,43 +16,85 @@ class MyPantryViewController: UIViewController, UITextFieldDelegate, UIImagePick
     @IBOutlet weak var pantryItemUnit: UITextField!
     @IBOutlet weak var pantryItemImage: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var pantryItemCategory: UITextField!
     
     var pantryItem: PantryItem?
-    var VALID_UNITS = ["", "oz", "lb", "mL", "L", "g"]
+    let VALID_UNITS = ["", "oz", "lb", "mL", "L", "g"]
+    var categoryNames = [""]
+    
+    let categoryPicker = UIPickerView()
+    let unitPicker = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        categoryNames = getCategoryNames()
+        
         pantryItemName.delegate = self
         pantryItemAmount.delegate = self
         pantryItemUnit.delegate = self
+        pantryItemCategory.delegate = self
         saveButton.isEnabled = false
         
         makeUnitPickerView()
+        makePantryCategoryPickerView()
+    }
+    
+    func getCategoryNames() -> [String] {
+        var categoryNames = [""]
+        if let categories = PantryCategory.loadCategories() {
+            for category in categories {
+                categoryNames.append(category.name)
+            }
+        }
+        return categoryNames
     }
     
     func makeUnitPickerView() {
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        pickerView.showsSelectionIndicator = true
+        unitPicker.delegate = self
+        unitPicker.showsSelectionIndicator = true
         
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
         toolBar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyPantryViewController.donePicker))
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyPantryViewController.unitPickerDone))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyPantryViewController.donePicker))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyPantryViewController.unitPickerDone))
         
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         
-        pantryItemUnit.inputView = pickerView
+        pantryItemUnit.inputView = unitPicker
         pantryItemUnit.inputAccessoryView = toolBar
     }
     
-    func donePicker() {
+    func makePantryCategoryPickerView() {
+        categoryPicker.delegate = self
+        categoryPicker.showsSelectionIndicator = true
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyPantryViewController.categoryPickerDone))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyPantryViewController.categoryPickerDone))
+        
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        pantryItemCategory.inputView = categoryPicker
+        pantryItemCategory.inputAccessoryView = toolBar
+    }
+    
+    func categoryPickerDone() {
+        pantryItemCategory.resignFirstResponder()
+    }
+    
+    func unitPickerDone() {
         pantryItemUnit.resignFirstResponder()
     }
     
@@ -67,16 +109,34 @@ class MyPantryViewController: UIViewController, UITextFieldDelegate, UIImagePick
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return VALID_UNITS.count
+        if (pickerView == categoryPicker) {
+            return categoryNames.count
+        }
+        else if (pickerView == unitPicker) {
+            return VALID_UNITS.count
+        }
+        return 0
     }
     
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return VALID_UNITS[row]
+        if (pickerView == categoryPicker) {
+            return categoryNames[row]
+        }
+        else if (pickerView == unitPicker) {
+            return VALID_UNITS[row]
+        }
+        return "Huh?"
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pantryItemUnit.text = VALID_UNITS[row]
+        if (pickerView == categoryPicker) {
+            pantryItemCategory.text = categoryNames[row]
+        }
+        else if (pickerView == unitPicker) {
+            pantryItemUnit.text = VALID_UNITS[row]
+        }
+        
     }
     
     

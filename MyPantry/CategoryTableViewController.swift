@@ -20,11 +20,16 @@ class CategoryTableViewController: UITableViewController {
     }
     
     func loadSampleCategories() {
-        let category1 = PantryCategory("Baking")
-        category1.addDefaultPantryItem1()
-        let category2 = PantryCategory("Cereal", description: "Delicious breakfast")
-        category2.addDefaultPantryItem2()
-        categories += [category1, category2]
+        if let savedCategories = PantryCategory.loadCategories() {
+            categories += savedCategories
+        }
+    }
+    
+    func saveCategories() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(categories, toFile: PantryCategory.ArchiveURL.path)
+        if !isSuccessfulSave {
+            print("Failed to save categories...")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -111,7 +116,7 @@ class CategoryTableViewController: UITableViewController {
             let newIndexPath = IndexPath(row: categories.count, section: 0)
             categories.append(category)
             tableView.insertRows(at: [newIndexPath], with: .bottom)
-
+            saveCategories()
         }
     }
     

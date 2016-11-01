@@ -26,16 +26,25 @@ class MyPantryTableViewController: UITableViewController {
     }
     
     func loadSampleCategories() {
-        let category1 = PantryCategory("Baking")
-        category1.addDefaultPantryItem1()
-        let category2 = PantryCategory("Cereal", description: "Breakfast :)")
-        category2.addDefaultPantryItem2()
-        categories += [category1, category2]
+        if let savedCategories = PantryCategory.loadCategories() {
+            print("adding some saved categories")
+            categories += savedCategories
+        }
+        else {
+            print("Did not find any saved categories")
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func saveCategories() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(categories, toFile: PantryCategory.ArchiveURL.path)
+        if !isSuccessfulSave {
+            print("Failed to save categories...")
+        }
     }
 
     // MARK: - Table view data source
@@ -74,6 +83,7 @@ class MyPantryTableViewController: UITableViewController {
             let newIndexPath = IndexPath(row: categories[0].getNumberOfPantryItems(), section: 0)
             categories[0].addPantryItem(pantryItem)
             tableView.insertRows(at: [newIndexPath], with: .bottom)
+            saveCategories()
         }
     }
 

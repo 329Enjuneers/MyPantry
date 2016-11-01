@@ -64,7 +64,7 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
             let name = categoryName.text
             let description = categoryDescription.text ?? ""
             
-            category = PantryCategory(name!, description: description)
+            category = PantryCategory(name!, theDescription: description)
         }
     }
     
