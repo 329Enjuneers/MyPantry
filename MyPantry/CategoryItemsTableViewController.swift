@@ -14,7 +14,6 @@ class CategoryItemsTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(self.navigationController)
         self.navigationController?.navigationBar.topItem?.title = category?.name
 
 //        category = category
@@ -61,6 +60,8 @@ class CategoryItemsTableViewController: UITableViewController {
             let newIndexPath = IndexPath(row: (category?.getNumberOfPantryItems())!, section: 0)
             category?.addPantryItem(pantryItem)
             tableView.insertRows(at: [newIndexPath], with: .bottom)
+            
+            // TODO save this category
         }
     }
     /*

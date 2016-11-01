@@ -40,7 +40,8 @@ class PantryItem: NSObject, NSCoding {
     
     required convenience init?(coder aDecoder: NSCoder) {
         let name = aDecoder.decodeObject(forKey:PropertyKey.nameKey) as! String
-        let amountRemainingInOunces = aDecoder.decodeObject(forKey: PropertyKey.amountRemainingInOuncesKey) as? Float ?? 0
+        let quack = aDecoder.decodeObject(forKey: PropertyKey.amountRemainingInOuncesKey)
+        let amountRemainingInOunces = aDecoder.decodeFloat(forKey: PropertyKey.amountRemainingInOuncesKey)
         let photo = aDecoder.decodeObject(forKey: PropertyKey.photoKey) as? UIImage
         let unit = aDecoder.decodeObject(forKey: PropertyKey.unitKey) as! String
         self.init(name: name, amountRemainingInOunces : amountRemainingInOunces, photo : photo, unit : unit)

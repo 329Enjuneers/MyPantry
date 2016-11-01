@@ -51,7 +51,11 @@ class CategoryTableViewController: UITableViewController {
         let cellIdentifier = "CategoryTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
         
+        if let savedCategories = PantryCategory.loadCategories() {
+          categories = savedCategories
+        }
         let category = categories[indexPath.row]
+        
 
         cell.categoryName.text = category.name
         cell.categoryDescription.text = category.getDisplayableDescription()

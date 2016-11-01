@@ -65,7 +65,8 @@ class MyPantryTableViewController: UITableViewController {
         let pantryItem = category.pantryItems[indexPath.row]
         
         cell.nameLabel.text = pantryItem.name
-        cell.amountRemainingLabel.text = pantryItem.amountRemainingInOunces.description
+        print(pantryItem.amountRemainingInOunces)
+        cell.amountRemainingLabel.text = String(pantryItem.amountRemainingInOunces)
         cell.unitLabel.text = pantryItem.unit
         cell.photoImageView.image = pantryItem.photo
 
@@ -81,6 +82,8 @@ class MyPantryTableViewController: UITableViewController {
         if let sourceViewController = sender.source as? MyPantryViewController, let pantryItem = sourceViewController.pantryItem {
             // Add a new pantryItem.
             let newIndexPath = IndexPath(row: categories[0].getNumberOfPantryItems(), section: 0)
+            
+            // TODO update this to select correct category
             categories[0].addPantryItem(pantryItem)
             tableView.insertRows(at: [newIndexPath], with: .bottom)
             saveCategories()

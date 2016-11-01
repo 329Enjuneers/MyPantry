@@ -66,6 +66,10 @@ class PantryCategory: NSObject, NSCoding {
         return displayableDescription
     }
     
+    func save() {
+        // TODO save this category
+    }
+    
     // MARK: NSCoding
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: PropertyKey.nameKey)
