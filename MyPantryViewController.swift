@@ -121,6 +121,7 @@ class MyPantryViewController: UIViewController, UITextFieldDelegate, UIImagePick
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if (pickerView == categoryPicker) {
+            //TODO we need to use categoryPicker.selectRow() to select row of category we are already in?
             return categoryNames[row]
         }
         else if (pickerView == unitPicker) {

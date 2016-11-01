@@ -27,7 +27,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DA811970-828B-4130-930F-3E1933CFB4E6" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2AE038AA-EFF7-480A-A6BA-F063B3B5DA6A" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
                                             <rect key="frame" x="0.0" y="2" width="91" height="84"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -296,6 +296,9 @@
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcS-SG-AbZ">
                                         <rect key="frame" x="0.0" y="256" width="343" height="30"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" selected="YES" notEnabled="YES"/>
+                                        </accessibility>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -471,7 +474,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="05388447-9498-40B6-A159-2041CA4A9A71" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-3k-66r">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="9F2DD078-C534-44E2-AC3B-A49BF9EB5A4C" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-3k-66r">
                                             <rect key="frame" x="0.0" y="2" width="91" height="84"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -555,7 +558,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="05388447-9498-40B6-A159-2041CA4A9A71" width="320" height="320">
+        <image name="2AE038AA-EFF7-480A-A6BA-F063B3B5DA6A" width="320" height="320">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7436,7 +7439,7 @@ AAZKQQAGSkQABkpJAAZKUQAGSlQABkpmAAZKaQAGSm4AAAAAAAAEAQAAAAAAAABBAAAAAAAAAAAAAAAA
 AAZKcA
 </mutableData>
         </image>
-        <image name="DA811970-828B-4130-930F-3E1933CFB4E6" width="320" height="320">
+        <image name="9F2DD078-C534-44E2-AC3B-A49BF9EB5A4C" width="320" height="320">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -14322,6 +14325,6 @@ AAZKcA
         <image name="home" width="28" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5U5-i4-ovX"/>
+        <segue reference="onY-2D-C4d"/>
     </inferredMetricsTieBreakers>
 </document>

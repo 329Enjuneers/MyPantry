@@ -14,7 +14,7 @@ class CategoryItemsTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(self.navigationController)
+        print(self.navigationController!)
         self.navigationController?.navigationBar.topItem?.title = category?.name
 
 //        category = category
