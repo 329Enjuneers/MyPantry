@@ -63,7 +63,6 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
         if saveButton.isEqual(sender) {
             let name = categoryName.text
             let description = categoryDescription.text ?? ""
-            
             category = PantryCategory(name!, theDescription: description)
         }
     }

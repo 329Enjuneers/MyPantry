@@ -15,20 +15,18 @@ class CategoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadSampleCategories()
-
+        categories = getCategories()
+        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
     
     func loadSampleCategories() {
         if let savedCategories = PantryCategory.loadCategories() {
-            categories += savedCategories
-        }
-    }
-    
-    func saveCategories() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(categories, toFile: PantryCategory.ArchiveURL.path)
-        if !isSuccessfulSave {
-            print("Failed to save categories...")
+            categories = savedCategories
         }
     }
 
@@ -44,44 +42,45 @@ class CategoryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return getCategories().count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CategoryTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
-        if let savedCategories = PantryCategory.loadCategories()
-        {
-            categories = savedCategories
-        }
-        let category = categories[indexPath.row]
-
+        let category = getCategories()[indexPath.row]
         cell.categoryName.text = category.name
         cell.categoryDescription.text = category.getDisplayableDescription()
         cell.categoryNumberOfItems.text = String(category.getNumberOfPantryItems())
 
         return cell
     }
+    
+    func getCategories() -> [PantryCategory] {
+        if let savedCategories = PantryCategory.loadCategories() {
+            categories = savedCategories
+        }
+        return categories
+    }
 
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            var categories = getCategories()
+            categories.remove(at: indexPath.row)
+            PantryCategory.saveCategories(categories: categories)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -107,7 +106,7 @@ class CategoryTableViewController: UITableViewController {
             let categoryItemViewController = nav.topViewController as! CategoryItemsTableViewController
             if let selectedCategoryCell = sender as? CategoryTableViewCell {
                 let indexPath = tableView.indexPath(for: selectedCategoryCell)!
-                let selectedCategory = categories[indexPath.row]
+                let selectedCategory = getCategories()[indexPath.row]
                 categoryItemViewController.category = selectedCategory
             }
         }
@@ -115,11 +114,12 @@ class CategoryTableViewController: UITableViewController {
     
     @IBAction func unwindToCategoryList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? CategoryViewController, let category = sourceViewController.category {
-            // Add a new pantryItem.
-            let newIndexPath = IndexPath(row: categories.count, section: 0)
-            categories.append(category)
+            print("Added new category: " + category.name)
+            let newIndexPath = IndexPath(row: getCategories().count, section: 0)
+            var localCategories = getCategories()
+            localCategories.append(category)
+            PantryCategory.saveCategories(categories: localCategories)
             tableView.insertRows(at: [newIndexPath], with: .bottom)
-            saveCategories()
         }
     }
     

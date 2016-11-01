@@ -66,6 +66,56 @@ class PantryCategory: NSObject, NSCoding {
         return displayableDescription
     }
     
+    func save() {
+        var categories = [PantryCategory]()
+        if let savedCategories = PantryCategory.loadCategories() {
+            for category in savedCategories {
+                if category.name.isEqual(name) {
+                    categories.append(self)
+                }
+                else {
+                    categories.append(category)
+                }
+            }
+        }
+        PantryCategory.saveCategories(categories : categories)
+    }
+    
+    func removePantryItemAt(index : Int) {
+        pantryItems.remove(at: index)
+    }
+    
+    static func saveCategories(categories : [PantryCategory]) {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(categories, toFile: PantryCategory.ArchiveURL.path)
+        if !isSuccessfulSave {
+            print("Failed to save categories...")
+        }
+    }
+    
+    static func getByName(categoryName : String) -> PantryCategory?{
+        if let savedCategories = PantryCategory.loadCategories() {
+            for category in savedCategories {
+                if category.name.isEqual(categoryName) {
+                    return category
+                }
+            }
+        }
+        return nil
+    }
+    
+    static func indexOf(category : PantryCategory) -> Int{
+        if let savedCategories = PantryCategory.loadCategories() {
+            var i = 0
+            for savedCategory in savedCategories {
+                if savedCategory.name.isEqual(category.name) {
+                    return i
+                }
+                i += 1
+            }
+        }
+        return -1
+    }
+    
     // MARK: NSCoding
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: PropertyKey.nameKey)
