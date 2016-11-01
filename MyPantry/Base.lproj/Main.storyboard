@@ -24,7 +24,7 @@
                                     <frame key="frameInset" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3670D312-781E-4B80-ADB8-79596EC2046B" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="439D2797-D3BF-4A85-9142-261F3E323E1A" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
                                             <frame key="frameInset" minY="2" width="91" height="84"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -453,7 +453,7 @@
                                     <frame key="frameInset" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2564B5EE-5653-4D77-AED1-96CAAE97CF16" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-3k-66r">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BBBA4F2F-6491-40D4-8479-135DC41ECD3C" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-3k-66r">
                                             <frame key="frameInset" minY="2" width="91" height="84"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -508,7 +508,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PLi-9t-Q56">
                             <connections>
-                                <segue destination="UC8-fP-Rcx" kind="presentation" id="onY-2D-C4d"/>
+                                <segue destination="UC8-fP-Rcx" kind="presentation" identifier="newPantryItem" id="onY-2D-C4d"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -537,7 +537,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="2564B5EE-5653-4D77-AED1-96CAAE97CF16" width="320" height="320">
+        <image name="439D2797-D3BF-4A85-9142-261F3E323E1A" width="320" height="320">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7418,7 +7418,7 @@ AAZKQQAGSkQABkpJAAZKUQAGSlQABkpmAAZKaQAGSm4AAAAAAAAEAQAAAAAAAABBAAAAAAAAAAAAAAAA
 AAZKcA
 </mutableData>
         </image>
-        <image name="3670D312-781E-4B80-ADB8-79596EC2046B" width="320" height="320">
+        <image name="BBBA4F2F-6491-40D4-8479-135DC41ECD3C" width="320" height="320">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

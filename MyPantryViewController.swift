@@ -18,7 +18,9 @@ class MyPantryViewController: UIViewController, UITextFieldDelegate, UIImagePick
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var pantryItemCategory: UITextField!
     
+    
     var pantryItem: PantryItem?
+    var preSelectedCategoryName: String?
     var selectedCategory : PantryCategory?
     let VALID_UNITS = ["", "oz", "lb", "mL", "L", "g"]
     var categoryNames = [""]
@@ -37,8 +39,16 @@ class MyPantryViewController: UIViewController, UITextFieldDelegate, UIImagePick
         pantryItemCategory.delegate = self
         saveButton.isEnabled = false
         
+        if let name = preSelectedCategoryName {
+            pantryItemCategory.text = name
+            pantryItemCategory.isEnabled = false
+        }
+        else {
+            makePantryCategoryPickerView()
+        }
+        
         makeUnitPickerView()
-        makePantryCategoryPickerView()
+        
     }
     
     func getCategoryNames() -> [String] {
@@ -157,7 +167,7 @@ class MyPantryViewController: UIViewController, UITextFieldDelegate, UIImagePick
     }
     
     private func checkSaveButtonShouldBeEnabled() {
-        if pantryItemName.text != "" && pantryItemUnit.text != "" && pantryItemAmount.text != "" {
+        if pantryItemName.text != "" && pantryItemUnit.text != "" && pantryItemAmount.text != "" && pantryItemCategory.text != "" {
             saveButton.isEnabled = true
         }
         else {
