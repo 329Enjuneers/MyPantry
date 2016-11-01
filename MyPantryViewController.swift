@@ -19,6 +19,7 @@ class MyPantryViewController: UIViewController, UITextFieldDelegate, UIImagePick
     @IBOutlet weak var pantryItemCategory: UITextField!
     
     var pantryItem: PantryItem?
+    var selectedCategory : PantryCategory?
     let VALID_UNITS = ["", "oz", "lb", "mL", "L", "g"]
     var categoryNames = [""]
     
@@ -193,7 +194,9 @@ class MyPantryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             let unit = pantryItemUnit.text ?? ""
             let amountRemainingInOunces = Float(pantryItemAmount.text ?? "0")!
             let photo = pantryItemImage.image
-            
+            if let categoryName = pantryItemCategory.text {
+                selectedCategory = PantryCategory.getByName(categoryName : categoryName)
+            }
             pantryItem = PantryItem(name: name, amountRemainingInOunces: amountRemainingInOunces, photo: photo, unit: unit)
         }
     }

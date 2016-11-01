@@ -15,24 +15,14 @@ class MyPantryTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        loadSampleCategories()
+        
+        categories = getCategories()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    
-    func loadSampleCategories() {
-        if let savedCategories = PantryCategory.loadCategories() {
-            print("adding some saved categories")
-            categories += savedCategories
-        }
-        else {
-            print("Did not find any saved categories")
-        }
+         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,32 +30,28 @@ class MyPantryTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func saveCategories() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(categories, toFile: PantryCategory.ArchiveURL.path)
-        if !isSuccessfulSave {
-            print("Failed to save categories...")
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return categories.count
+        return getCategories().count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let category = categories[section]
+        let category = getCategories()[section]
         return category.getNumberOfPantryItems()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "MyPantryTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MyPantryTableViewCell
-        let category = categories[indexPath.section]
+        let category = getCategories()[indexPath.section]
         let pantryItem = category.pantryItems[indexPath.row]
         
         cell.nameLabel.text = pantryItem.name
-        print(pantryItem.amountRemainingInOunces)
         cell.amountRemainingLabel.text = String(pantryItem.amountRemainingInOunces)
         cell.unitLabel.text = pantryItem.unit
         cell.photoImageView.image = pantryItem.photo
@@ -74,41 +60,49 @@ class MyPantryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let category = categories[section]
+        let category = getCategories()[section]
         return "\(category.name)"
     }
     
     @IBAction func unwindToPantryItemList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? MyPantryViewController, let pantryItem = sourceViewController.pantryItem {
-            // Add a new pantryItem.
-            let newIndexPath = IndexPath(row: categories[0].getNumberOfPantryItems(), section: 0)
+        if let sourceViewController = sender.source as? MyPantryViewController, let pantryItem = sourceViewController.pantryItem, let category = sourceViewController.selectedCategory {
             
-            // TODO update this to select correct category
-            categories[0].addPantryItem(pantryItem)
+            // Add a new pantryItem.
+            let section = PantryCategory.indexOf(category: category)
+            let newIndexPath = IndexPath(row: category.getNumberOfPantryItems(), section: section)
+            
+            category.addPantryItem(pantryItem)
+            category.save()
+            
             tableView.insertRows(at: [newIndexPath], with: .bottom)
-            saveCategories()
         }
     }
 
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            let category = getCategories()[indexPath.section]
+            category.removePantryItemAt(index : indexPath.row)
+            PantryCategory.saveCategories(categories: categories)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
+    func getCategories() -> [PantryCategory]{
+        if let savedCategories = PantryCategory.loadCategories() {
+            categories = savedCategories
+        }
+        return categories
+    }
 
     /*
     // Override to support rearranging the table view.

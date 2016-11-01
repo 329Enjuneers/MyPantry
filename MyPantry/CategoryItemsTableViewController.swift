@@ -21,6 +21,10 @@ class CategoryItemsTableViewController: UITableViewController {
 //            print(category.name)
 //        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,6 +66,7 @@ class CategoryItemsTableViewController: UITableViewController {
             tableView.insertRows(at: [newIndexPath], with: .bottom)
             
             // TODO save this category
+            category?.save()
         }
     }
     /*
