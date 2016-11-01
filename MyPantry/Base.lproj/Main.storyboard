@@ -27,8 +27,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2AE038AA-EFF7-480A-A6BA-F063B3B5DA6A" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
-                                            <rect key="frame" x="0.0" y="2" width="91" height="84"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="439D2797-D3BF-4A85-9142-261F3E323E1A" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
+                                            <frame key="frameInset" minY="2" width="91" height="84"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYG-d8-pdo">
@@ -474,8 +474,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+<<<<<<< HEAD
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="9F2DD078-C534-44E2-AC3B-A49BF9EB5A4C" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-3k-66r">
                                             <rect key="frame" x="0.0" y="2" width="91" height="84"/>
+=======
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BBBA4F2F-6491-40D4-8479-135DC41ECD3C" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-3k-66r">
+                                            <frame key="frameInset" minY="2" width="91" height="84"/>
+>>>>>>> 490279780dd81d879d31e8e021267c8b972657c8
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNw-2t-efq">
@@ -529,7 +534,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PLi-9t-Q56">
                             <connections>
-                                <segue destination="UC8-fP-Rcx" kind="presentation" id="onY-2D-C4d"/>
+                                <segue destination="UC8-fP-Rcx" kind="presentation" identifier="newPantryItem" id="onY-2D-C4d"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -558,7 +563,11 @@
         </scene>
     </scenes>
     <resources>
+<<<<<<< HEAD
         <image name="2AE038AA-EFF7-480A-A6BA-F063B3B5DA6A" width="320" height="320">
+=======
+        <image name="439D2797-D3BF-4A85-9142-261F3E323E1A" width="320" height="320">
+>>>>>>> 490279780dd81d879d31e8e021267c8b972657c8
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7439,7 +7448,11 @@ AAZKQQAGSkQABkpJAAZKUQAGSlQABkpmAAZKaQAGSm4AAAAAAAAEAQAAAAAAAABBAAAAAAAAAAAAAAAA
 AAZKcA
 </mutableData>
         </image>
+<<<<<<< HEAD
         <image name="9F2DD078-C534-44E2-AC3B-A49BF9EB5A4C" width="320" height="320">
+=======
+        <image name="BBBA4F2F-6491-40D4-8479-135DC41ECD3C" width="320" height="320">
+>>>>>>> 490279780dd81d879d31e8e021267c8b972657c8
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

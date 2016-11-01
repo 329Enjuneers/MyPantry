@@ -58,10 +58,8 @@ class CategoryItemsTableViewController: UITableViewController {
             // Add a new pantryItem.
             let newIndexPath = IndexPath(row: (category?.getNumberOfPantryItems())!, section: 0)
             category?.addPantryItem(pantryItem)
-            tableView.insertRows(at: [newIndexPath], with: .bottom)
-            
-            // TODO save this category
             category?.save()
+            tableView.insertRows(at: [newIndexPath], with: .bottom)
         }
     }
     
@@ -98,14 +96,15 @@ class CategoryItemsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "newPantryItem" {
+            let nav = segue.destination as! UINavigationController
+            let pantryItemViewController = nav.topViewController as! MyPantryViewController
+            pantryItemViewController.preSelectedCategoryName = category?.name
+        }
     }
-    */
     
 }
