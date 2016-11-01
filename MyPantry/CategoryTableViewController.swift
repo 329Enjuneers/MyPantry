@@ -50,7 +50,10 @@ class CategoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CategoryTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
-        
+        if let savedCategories = PantryCategory.loadCategories()
+        {
+            categories = savedCategories
+        }
         let category = categories[indexPath.row]
 
         cell.categoryName.text = category.name
