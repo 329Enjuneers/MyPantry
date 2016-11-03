@@ -17,6 +17,10 @@ class MyPantryTableViewController: UITableViewController {
         super.viewDidLoad()
         
         categories = getCategories()
+        
+        if categories.count == 0 {
+            categories = [PantryCategory.makeGeneralCategory()]
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -70,6 +74,7 @@ class MyPantryTableViewController: UITableViewController {
             {
                 //pantry item is being edited so update existing pantryItem
                 category.pantryItems[selectedIndexPath.row] = pantryItem
+                category.save()
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
             else
@@ -137,14 +142,16 @@ class MyPantryTableViewController: UITableViewController {
         
         if segue.identifier == "ShowDetail"
         {
-            let pantryItemDetailViewController = segue.destination as! MyPantryViewController
+            let nav = segue.destination as! UINavigationController
+            let pantryItemDetailViewController = nav.topViewController as! MyPantryViewController
             //Get the cell that generated this segue
             if let selectedPantryItemCell = sender as? MyPantryTableViewCell
             {
                 let indexPath = tableView.indexPath(for: selectedPantryItemCell)!
                 let category = getCategories()[indexPath.section]
-                let selectedPantryItem = category.pantryItems[indexPath.row] //is this right?
+                let selectedPantryItem = category.pantryItems[indexPath.row]
                 pantryItemDetailViewController.pantryItem = selectedPantryItem
+                pantryItemDetailViewController.preSelectedCategoryName = category.name
                 
             }
             

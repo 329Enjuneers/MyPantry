@@ -45,7 +45,6 @@ class MyPantryViewController: UIViewController, UITextFieldDelegate, UIImagePick
             pantryItemAmount.text = pantryItem.amountRemainingInOunces.description
             pantryItemUnit.text = pantryItem.unit
             pantryItemImage.image = pantryItem.photo
-            pantryItemCategory.text = selectedCategory?.name
             saveButton.isEnabled = true;
             
         }

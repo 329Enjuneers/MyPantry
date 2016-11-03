@@ -34,6 +34,12 @@ class PantryCategory: NSObject, NSCoding {
         super.init()
     }
     
+    static func makeGeneralCategory() -> PantryCategory {
+        let category = PantryCategory("General", theDescription : "Put anything in here!", pantryItems: [])
+        category.save()
+        return category
+    }
+    
     static func loadCategories() -> [PantryCategory]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURL.path) as? [PantryCategory]
     }
@@ -77,6 +83,9 @@ class PantryCategory: NSObject, NSCoding {
                     categories.append(category)
                 }
             }
+        }
+        if categories.count == 0 {
+            categories = [self]
         }
         PantryCategory.saveCategories(categories : categories)
     }

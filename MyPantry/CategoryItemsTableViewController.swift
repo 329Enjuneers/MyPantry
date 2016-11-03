@@ -61,6 +61,7 @@ class CategoryItemsTableViewController: UITableViewController {
                 //pantry item is being edited so update existing pantryItem
                 category?.pantryItems[selectedIndexPath.row] = pantryItem
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                category?.save()
                 
             }
             else
@@ -119,13 +120,15 @@ class CategoryItemsTableViewController: UITableViewController {
         }
         else if segue.identifier == "ShowDetail"
         {
-            let pantryItemDetailViewController = segue.destination as! MyPantryViewController
+            let nav = segue.destination as! UINavigationController
+            let pantryItemDetailViewController = nav.topViewController as! MyPantryViewController
             //Get the cell that generated this segue
             if let selectedPantryItemCell = sender as? CategoryItemsTableViewCell
             {
                 let indexPath = tableView.indexPath(for: selectedPantryItemCell)!
                 let selectedPantryItem = category?.pantryItems[indexPath.row]
                 pantryItemDetailViewController.pantryItem = selectedPantryItem
+                pantryItemDetailViewController.preSelectedCategoryName = category?.name
                 
             }
             
