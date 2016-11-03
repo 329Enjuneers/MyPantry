@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YrO-Lf-RVy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YrO-Lf-RVy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,13 +21,13 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MyPantryTableViewCell" rowHeight="90" id="Nxg-Ss-6Y2" customClass="MyPantryTableViewCell" customModule="MyPantry" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nxg-Ss-6Y2" id="Ejc-Fw-NSk">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="21E910D3-46FF-4A9D-A364-EDC32092B62B" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="36177764-84D6-492F-9494-86AB16BD5A61" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
                                             <rect key="frame" x="0.0" y="2" width="91" height="84"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -93,7 +93,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DS0-hC-8Fi" id="0uu-Ix-eyU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKW-rY-tRY">
@@ -454,10 +454,10 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VT9-Da-s22" id="Pci-t2-Nig">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="A03129F4-F3BE-4139-8338-8F3DA1A2CA2C" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-3k-66r">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="B712D13F-DF08-471E-AB21-9EB2CD9A40B2" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-3k-66r">
                                             <rect key="frame" x="0.0" y="2" width="91" height="84"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -511,7 +511,11 @@
                                 <action selector="back:" destination="jRy-1q-ACe" id="gUR-zU-sJ2"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PLi-9t-Q56"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PLi-9t-Q56">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="wCK-JW-EhS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6om-K2-HMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -556,7 +560,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="21E910D3-46FF-4A9D-A364-EDC32092B62B" width="320" height="320">
+        <image name="36177764-84D6-492F-9494-86AB16BD5A61" width="320" height="320">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7437,7 +7441,7 @@ AAZKQQAGSkQABkpJAAZKUQAGSlQABkpmAAZKaQAGSm4AAAAAAAAEAQAAAAAAAABBAAAAAAAAAAAAAAAA
 AAZKcA
 </mutableData>
         </image>
-        <image name="A03129F4-F3BE-4139-8338-8F3DA1A2CA2C" width="320" height="320">
+        <image name="B712D13F-DF08-471E-AB21-9EB2CD9A40B2" width="320" height="320">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -14323,6 +14327,7 @@ AAZKcA
         <image name="home" width="28" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="v1R-cb-psa"/>
+        <segue reference="wCK-JW-EhS"/>
+        <segue reference="pFm-Hi-U26"/>
     </inferredMetricsTieBreakers>
 </document>
