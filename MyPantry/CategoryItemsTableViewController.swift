@@ -54,12 +54,24 @@ class CategoryItemsTableViewController: UITableViewController {
     }
     
     @IBAction func unwindToPantryItemList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? MyPantryViewController, let pantryItem = sourceViewController.pantryItem {
-            // Add a new pantryItem.
-            let newIndexPath = IndexPath(row: (category?.getNumberOfPantryItems())!, section: 0)
-            category?.addPantryItem(pantryItem)
-            category?.save()
-            tableView.insertRows(at: [newIndexPath], with: .bottom)
+        if let sourceViewController = sender.source as? MyPantryViewController, let pantryItem = sourceViewController.pantryItem
+        {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow
+            {
+                //pantry item is being edited so update existing pantryItem
+                category?.pantryItems[selectedIndexPath.row] = pantryItem
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                
+            }
+            else
+            {
+                // Add a new pantryItem.
+                let newIndexPath = IndexPath(row: (category?.getNumberOfPantryItems())!, section: 0)
+                category?.addPantryItem(pantryItem)
+                category?.save()
+                tableView.insertRows(at: [newIndexPath], with: .bottom)
+            }
+            
         }
     }
     
@@ -104,6 +116,20 @@ class CategoryItemsTableViewController: UITableViewController {
             let nav = segue.destination as! UINavigationController
             let pantryItemViewController = nav.topViewController as! MyPantryViewController
             pantryItemViewController.preSelectedCategoryName = category?.name
+        }
+        else if segue.identifier == "ShowDetail"
+        {
+            let pantryItemDetailViewController = segue.destination as! MyPantryViewController //TODO what goes here?
+            //Get the cell that generated this segue
+            if let selectedPantryItemCell = sender as? CategoryItemsTableViewCell
+            {
+                let indexPath = tableView.indexPath(for: selectedPantryItemCell)!
+                let selectedPantryItem = category?.pantryItems[indexPath.row]
+                pantryItemDetailViewController.pantryItem = selectedPantryItem
+                //TODO idk what destination segue is
+                
+            }
+            
         }
     }
     

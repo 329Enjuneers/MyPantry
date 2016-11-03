@@ -124,9 +124,26 @@ class MyPantryTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "ShowDetail"
+        {
+            let pantryItemDetailViewController = segue.destinationViewController as! MyPantryViewController
+            //get the cell that generated this segue
+            if let selectedPantryItemCell = sender as? MyPantryTableViewCell
+            {
+                let indexPath = tableView.indexPath(for: selectedPantryItemCell)!
+                let selectedPantryItem = pantryItems[indexPath.row]
+                
+            }
+        }
+        else if segue.identifier == "AddItem"
+        {
+            
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+ */
+ 
     
 }

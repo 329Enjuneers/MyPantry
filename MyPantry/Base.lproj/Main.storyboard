@@ -27,8 +27,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="439D2797-D3BF-4A85-9142-261F3E323E1A" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
-                                            <frame key="frameInset" minY="2" width="91" height="84"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="55FADBB1-9017-40D5-9AC3-742DE3060B42" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-rP-F6e">
+                                            <rect key="frame" x="0.0" y="2" width="91" height="84"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYG-d8-pdo">
@@ -59,6 +59,7 @@
                                     <outlet property="nameLabel" destination="BYG-d8-pdo" id="GJm-EF-BLv"/>
                                     <outlet property="photoImageView" destination="YNK-rP-F6e" id="CVg-7O-lUj"/>
                                     <outlet property="unitLabel" destination="8up-9W-UVN" id="N7Z-BA-t7K"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="v1R-cb-psa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,7 +71,7 @@
                     <navigationItem key="navigationItem" title="MyPantry" id="t9f-7Q-ZuP">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="y1Z-C5-oix">
                             <connections>
-                                <segue destination="UC8-fP-Rcx" kind="presentation" id="5U5-i4-ovX"/>
+                                <segue destination="UC8-fP-Rcx" kind="presentation" identifier="AddItem" id="5U5-i4-ovX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -92,7 +93,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DS0-hC-8Fi" id="0uu-Ix-eyU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKW-rY-tRY">
@@ -413,9 +414,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9dc-c4-YL5"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8G-gS-2hf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -471,16 +469,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VT9-Da-s22" id="Pci-t2-Nig">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-<<<<<<< HEAD
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="9F2DD078-C534-44E2-AC3B-A49BF9EB5A4C" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-3k-66r">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="D50FD5E6-9F0E-4AB4-8B9C-3E91B54FC81F" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-3k-66r">
                                             <rect key="frame" x="0.0" y="2" width="91" height="84"/>
-=======
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BBBA4F2F-6491-40D4-8479-135DC41ECD3C" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-3k-66r">
-                                            <frame key="frameInset" minY="2" width="91" height="84"/>
->>>>>>> 490279780dd81d879d31e8e021267c8b972657c8
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNw-2t-efq">
@@ -518,6 +511,7 @@
                                     <outlet property="pantryItemName" destination="vNw-2t-efq" id="I6x-po-Jgw"/>
                                     <outlet property="pantryItemPhoto" destination="0fB-3k-66r" id="ZZl-nX-iaJ"/>
                                     <outlet property="pantryItemUnit" destination="fNj-sa-UbF" id="eFF-Qs-KmW"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="pFm-Hi-U26"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -541,7 +535,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6om-K2-HMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5080.8000000000002" y="1676.311844077961"/>
+            <point key="canvasLocation" x="5080.8000000000002" y="1675.4122938530736"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ONJ-KW-kek">
@@ -563,11 +557,7 @@
         </scene>
     </scenes>
     <resources>
-<<<<<<< HEAD
-        <image name="2AE038AA-EFF7-480A-A6BA-F063B3B5DA6A" width="320" height="320">
-=======
-        <image name="439D2797-D3BF-4A85-9142-261F3E323E1A" width="320" height="320">
->>>>>>> 490279780dd81d879d31e8e021267c8b972657c8
+        <image name="55FADBB1-9017-40D5-9AC3-742DE3060B42" width="320" height="320">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7448,11 +7438,7 @@ AAZKQQAGSkQABkpJAAZKUQAGSlQABkpmAAZKaQAGSm4AAAAAAAAEAQAAAAAAAABBAAAAAAAAAAAAAAAA
 AAZKcA
 </mutableData>
         </image>
-<<<<<<< HEAD
-        <image name="9F2DD078-C534-44E2-AC3B-A49BF9EB5A4C" width="320" height="320">
-=======
-        <image name="BBBA4F2F-6491-40D4-8479-135DC41ECD3C" width="320" height="320">
->>>>>>> 490279780dd81d879d31e8e021267c8b972657c8
+        <image name="D50FD5E6-9F0E-4AB4-8B9C-3E91B54FC81F" width="320" height="320">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -14338,6 +14324,7 @@ AAZKcA
         <image name="home" width="28" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pFm-Hi-U26"/>
         <segue reference="onY-2D-C4d"/>
     </inferredMetricsTieBreakers>
 </document>
