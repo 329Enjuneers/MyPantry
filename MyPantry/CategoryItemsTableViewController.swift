@@ -119,14 +119,13 @@ class CategoryItemsTableViewController: UITableViewController {
         }
         else if segue.identifier == "ShowDetail"
         {
-            let pantryItemDetailViewController = segue.destination as! MyPantryViewController //TODO what goes here?
+            let pantryItemDetailViewController = segue.destination as! MyPantryViewController
             //Get the cell that generated this segue
             if let selectedPantryItemCell = sender as? CategoryItemsTableViewCell
             {
                 let indexPath = tableView.indexPath(for: selectedPantryItemCell)!
                 let selectedPantryItem = category?.pantryItems[indexPath.row]
                 pantryItemDetailViewController.pantryItem = selectedPantryItem
-                //TODO idk what destination segue is
                 
             }
             
